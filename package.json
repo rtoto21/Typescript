@@ -21,13 +21,15 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
+    "code": "4.0.0",
     "good": "7.1.0",
     "good-console": "6.2.0",
     "hapi": "16.0.2",
     "hapi-auth-cookie": "6.1.1",
+    "hoek": "4.1.0",
+    "lab": "11.2.1",
     "nconf": "0.8.4",
     "path": "0.12.7"
   }

@@ -1,10 +1,11 @@
 import * as hapi 				from "hapi";
+import * as hoek				from "hoek";
 import * as good 				from "good";
-import * as goodConsole from "good-console";
-import * as config 			from "./configs/config";
+import * as goodConsole 		from "good-console";
+import * as config 				from "./configs/config";
 import * as route				from "./routes/route";
 
-const server: hapi.Server = new hapi.Server();
+export const server: hapi.Server = new hapi.Server();
 const serverConfig: config.IServerConfig = config.getServerConfig();
 const pluginOptions = {
 	serverConfig: serverConfig
@@ -35,16 +36,12 @@ server.register({
 		}
 	}
 }, (err: any) => {
-	if (err) {
-		throw err;
-	}
+	hoek.assert(!err, err);
 });
 
 route.routes(server, serverConfig);
 
 server.start((err: any) => {
-	if (err) {
-		throw err;
-	}
+	hoek.assert(!err, err);
 	server.log('info', 'Server running at: ' + server.info.uri);
 });
