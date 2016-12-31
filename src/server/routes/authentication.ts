@@ -8,7 +8,7 @@ export function routes(server: hapi.Server, serverConfig: IServerConfig) {
 		path: '/api/login',
 		handler: (request: hapi.Request, reply: hapi.IReply) => {
 			if (request.payload.username) {
-					reply(`Login Success, User ${request.payload.username}`);
+				reply(`Login Success, User ${request.payload.username}`);
 			} else {
 	    		reply('Login Unsuccess');
 	    	}
